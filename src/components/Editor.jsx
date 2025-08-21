@@ -1,30 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { saveNote, getNote } from '../utils/localStorage';
+import React from 'react';
+import '../styles/Editor.css';
 
-const Editor = () => {
-    const [text, setText] = useState('');
-
-    useEffect(() => {
-        const savedText = getNote('note');
-        if (savedText) {
-            setText(savedText);
-        }
-    }, []);
-
+const Editor = ({ notes, onNotesChange }) => {
     const handleChange = (event) => {
-        const newText = event.target.value;
-        setText(newText);
-        saveNote('note', newText);
+        onNotesChange(event.target.value);
     };
 
     return (
-        <div>
+        <div className="editor-container">
             <textarea
-                value={text}
+                className="editor-textarea"
+                value={notes}
                 onChange={handleChange}
-                rows="20"
-                cols="50"
                 placeholder="Write your notes here..."
+                autoFocus
+                spellCheck="true"
             />
         </div>
     );

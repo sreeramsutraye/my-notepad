@@ -1,26 +1,26 @@
 import React from 'react';
-import { exportToDoc, exportToPdf, exportToTxt } from '../utils/exportUtils';
+import { exportToTxt, exportToPdf, exportToDoc } from '../utils/exportUtils';
+// import '../styles/ExportOptions.css';
 
-const ExportOptions = ({ content }) => {
-    const handleDocExport = () => {
-        exportToDoc(content);
-    };
-
-    const handlePdfExport = () => {
-        exportToPdf(content);
-    };
-
-    const handleTxtExport = () => {
-        exportToTxt(content);
-    };
-
-    return (
-        <div className="export-options">
-            <button onClick={handleDocExport}>Download as DOC</button>
-            <button onClick={handlePdfExport}>Download as PDF</button>
-            <button onClick={handleTxtExport}>Download as TXT</button>
-        </div>
-    );
+const ExportOptions = ({ notes }) => {
+  const handleExportTxt = () => {
+    exportToTxt(notes);
+  };
+  
+  const handleExportPdf = () => {
+    exportToPdf(notes);
+  };
+  
+  return (
+    <div className="export-options">
+      <button className="export-btn txt-btn" onClick={handleExportTxt}>
+        Export as TXT
+      </button>
+      <button className="export-btn pdf-btn" onClick={handleExportPdf}>
+        Export as PDF
+      </button>
+    </div>
+  );
 };
 
 export default ExportOptions;

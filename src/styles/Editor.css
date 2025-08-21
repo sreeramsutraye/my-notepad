@@ -1,0 +1,84 @@
+.editor-container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #f9f9f9;
+}
+
+.editor-textarea {
+    width: 100%;
+    height: calc(100vh - 170px);
+    padding: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #2c3e50;
+    resize: none;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.editor-textarea:focus {
+    outline: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: #6e8efb;
+}
+
+.editor-textarea::placeholder {
+    color: #a0aec0;
+    opacity: 0.8;
+}
+
+/* Style for the scrollbar */
+.editor-textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+.editor-textarea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.editor-textarea::-webkit-scrollbar-thumb {
+    background: #c5d0e6;
+    border-radius: 4px;
+}
+
+.editor-textarea::-webkit-scrollbar-thumb:hover {
+    background: #a8b8d8;
+}
+
+/* Dark mode support */
+body.dark-mode .editor-container {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .editor-textarea {
+    background-color: #303030;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+body.dark-mode .editor-textarea:focus {
+    border-color: #a777e3;
+}
+
+body.dark-mode .editor-textarea::placeholder {
+    color: #888;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .editor-container {
+        padding: 1rem;
+    }
+    
+    .editor-textarea {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
