@@ -2,8 +2,11 @@ import { jsPDF } from 'jspdf';
 import { saveAs } from 'file-saver';
 
 // Export as plain text file
-export const exportToTxt = (text) => {
+export const exportToTxt = (htmlContent) => {
   try {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = htmlContent;
+    const text = tempDiv.innerText || '';
     const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
     saveAs(blob, 'notepad-export.txt');
   } catch (error) {
@@ -13,29 +16,42 @@ export const exportToTxt = (text) => {
 };
 
 // Export as PDF file
-export const exportToPdf = (text) => {
+export const exportToPdf = (htmlContent) => {
   try {
-    const doc = new jsPDF();
-    
-    // Set font size and calculate dimensions
-    doc.setFontSize(12);
-    const pageWidth = doc.internal.pageSize.getWidth() - 20;
-    
-    // Split text into lines that fit the page width
-    const splitText = doc.splitTextToSize(text, pageWidth);
-    
-    // Add text to document
-    doc.text(splitText, 10, 10);
-    doc.save('notepad-export.pdf');
+    const doc = new jsPDF({
+      orientation: 'p',
+      unit: 'mm',
+      format: 'a4',
+    });
+
+    const tempDiv = document.createElement('div');
+    // Set a width that matches the PDF page width for rendering
+    tempDiv.style.width = '210mm'; 
+    tempDiv.innerHTML = htmlContent;
+
+    doc.html(tempDiv, {
+      callback: function (doc) {
+        doc.save('notepad-export.pdf');
+      },
+      x: 10,
+      y: 10,
+      width: 190, // The content width in the PDF (A4 width 210mm - 20mm margins)
+      windowWidth: 900, // The width of the browser window to render the HTML (in px)
+      autoPaging: 'text', // Automatically add new pages
+    });
   } catch (error) {
     console.error('Error exporting as PDF:', error);
-    alert('Failed to export as PDF. Please make sure jsPDF is installed: npm install jspdf');
+    alert('Failed to export as PDF. Please try again.');
   }
 };
 
 // Export as Word document
-export const exportToDoc = (text) => {
+export const exportToDoc = (htmlContent) => {
   try {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = htmlContent;
+    const text = tempDiv.innerText || '';
+
     // For DOC format, we create an HTML approach since docx library might be causing issues
     const html = `<html xmlns:o='urn:schemas-microsoft-com:office:office' 
       xmlns:w='urn:schemas-microsoft-com:office:word' 

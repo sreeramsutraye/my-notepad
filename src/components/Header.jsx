@@ -6,7 +6,6 @@ const Header = () => {
         <header className="app-header">
             <div className="header-content">
                 <div className="logo">
-                    <span className="logo-icon">📝</span>
                     <h1>Notepad</h1>
                 </div>
             </div>

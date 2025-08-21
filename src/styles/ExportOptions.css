@@ -27,6 +27,28 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.export-options {
+    padding: 1rem 0;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.export-options button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.export-options button:hover {
+    background-color: var(--button-hover-bg);
+}
+
 .clear-btn {
     background-color: #f1f3f5;
     color: #495057;
