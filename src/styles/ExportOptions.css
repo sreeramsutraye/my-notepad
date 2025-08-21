@@ -1,0 +1,78 @@
+.export-options {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.export-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clear-btn {
+    background-color: #f1f3f5;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+
+.clear-btn:hover {
+    background-color: #e9ecef;
+}
+
+.txt-btn {
+    background-color: #e3fafc;
+    color: #1098ad;
+}
+
+.txt-btn:hover {
+    background-color: #c5f6fa;
+}
+
+.pdf-btn {
+    background-color: #fff0f6;
+    color: #d6336c;
+}
+
+.pdf-btn:hover {
+    background-color: #ffe3e3;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .export-options {
+    background-color: #303030;
+    border-top: 1px solid #444;
+}
+
+body.dark-mode .clear-btn {
+    background-color: #495057;
+    color: #f1f3f5;
+    border-color: #555;
+}
+
+body.dark-mode .txt-btn {
+    background-color: #1098ad;
+    color: #e3fafc;
+}
+
+body.dark-mode .pdf-btn {
+    background-color: #d6336c;
+    color: #fff0f6;
+}

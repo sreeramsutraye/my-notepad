@@ -1,8 +1,8 @@
 import React from 'react';
-import { exportToTxt, exportToPdf, exportToDoc } from '../utils/exportUtils';
-// import '../styles/ExportOptions.css';
+import { exportToTxt, exportToPdf } from '../utils/exportUtils';
+import '../styles/ExportOptions.css';
 
-const ExportOptions = ({ notes }) => {
+const ExportOptions = ({ notes, onClearNote }) => {
   const handleExportTxt = () => {
     exportToTxt(notes);
   };
